@@ -71,7 +71,7 @@ const featuredProducts = [
   {
     id: 1,
     name: "Pointeur enseignant",
-    price: "9.000 DT",
+    price: "10.000 DT",
     category: "Outils enseignants",
     image: pointeur,
     badge: "Populaire",
