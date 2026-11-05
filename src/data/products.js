@@ -15,7 +15,7 @@ const products = [
     id: 1,
     name: "Pointeur",
     slug: "pointeur",
-    price: 9.0,
+    price: 10.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
     image: imagePath("Pointeur.png"),
