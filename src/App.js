@@ -7,7 +7,7 @@ import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <BrowserRouter basename="/teachershine">
+    <BrowserRouter basename="/teachersshine">
       <CartProvider>
         <Navbar />
 
