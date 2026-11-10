@@ -1,0 +1,53 @@
+.winter-cursor-canvas {
+
+    position: fixed;
+
+    inset: 0;
+
+ 
+
+    width: 100%;
+
+    height: 100%;
+
+ 
+
+    z-index: 41;
+
+ 
+
+    pointer-events: none;
+
+    background: transparent;
+
+ 
+
+    overflow: hidden;
+
+}
+
+ 
+
+/* Désactivation sur les appareils tactiles */
+
+@media (hover: none), (pointer: coarse) {
+
+    .winter-cursor-canvas {
+
+        display: none;
+
+    }
+
+}
+
+ 
+
+@media (prefers-reduced-motion: reduce) {
+
+    .winter-cursor-canvas {
+
+        display: none;
+
+    }
+
+}

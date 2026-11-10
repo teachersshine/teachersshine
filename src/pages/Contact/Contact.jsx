@@ -161,7 +161,7 @@ function Contact() {
 
                 <span className="ts-contact-info-text">
                   <span className="ts-contact-info-label">E-mail</span>
-                  <strong>teacher.shine@gmail.com</strong>
+                  <strong>teachersshine2026@gmail.com</strong>
                   <span className="ts-contact-info-hint">
                     Écrivez-nous à tout moment
                   </span>

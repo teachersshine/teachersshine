@@ -1,25 +1,30 @@
+
 import { BrowserRouter } from "react-router-dom";
 
 import AppRoutes from "./routes/AppRoutes";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { CartProvider } from "./context/CartContext";
+import SnowfallEffect from "./components/winter/SnowfallEffect";
+
 
 function App() {
-  return (
-    <BrowserRouter basename="/teachersshine">
-      <CartProvider>
-        <Navbar />
+    return (
+        <BrowserRouter basename="/teachersshine">
+            <CartProvider>
+              <SnowfallEffect />
+                
 
-        <main>
-          <AppRoutes />
-        </main>
+                <Navbar />
 
-        <Footer />
-      </CartProvider>
-    </BrowserRouter>
-  );
+                <main>
+                    <AppRoutes />
+                </main>
+
+                <Footer />
+            </CartProvider>
+        </BrowserRouter>
+    );
 }
 
 export default App;
-

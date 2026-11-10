@@ -1076,3 +1076,234 @@
     animation-iteration-count: 1 !important;
   }
 }
+
+/* =========================================================
+   TEACHER SHINE — WINTER COLLECTION CAMPAIGN
+   10 NOVEMBER — 10 JANUARY
+========================================================= */
+
+.navbar-order-notice.winter-campaign {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.95),
+      transparent 35%
+    ),
+    linear-gradient(105deg, #edf6f7, #e5f1f3 55%, #f4f8f6);
+
+  border-bottom: 1px solid #d6e8e9;
+}
+
+.navbar-order-notice.winter-campaign::before,
+.navbar-order-notice.winter-campaign::after {
+  content: "❄";
+  position: absolute;
+  z-index: -1;
+  color: rgba(71, 132, 148, 0.12);
+  pointer-events: none;
+}
+
+.navbar-order-notice.winter-campaign::before {
+  top: -20px;
+  right: 8%;
+  font-size: 85px;
+}
+
+.navbar-order-notice.winter-campaign::after {
+  bottom: -28px;
+  left: 35%;
+  font-size: 70px;
+}
+
+.winter-campaign-content {
+  width: min(92%, 1180px);
+  min-height: 96px;
+  margin: 0 auto;
+  padding: 15px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.winter-campaign-icon {
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(65, 129, 145, 0.18);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.8);
+  color: #397F91;
+
+  box-shadow: 0 5px 15px rgba(50, 105, 120, 0.07);
+}
+
+.winter-campaign-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.winter-campaign-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.winter-campaign-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+
+  color: #518594;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.winter-campaign-title {
+  margin: 0;
+
+  color: #285966;
+  font-size: 1.02rem;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.winter-campaign-description {
+  margin: 4px 0 0;
+
+  color: #627e84;
+  font-size: 0.77rem;
+  line-height: 1.5;
+}
+
+.winter-campaign-link {
+  min-height: 42px;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 0 17px;
+
+  border: 1px solid #397F91;
+  border-radius: 11px;
+
+  background: #397F91;
+  color: #fff;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+
+  box-shadow: 0 5px 13px rgba(57, 127, 145, 0.16);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.winter-campaign-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.winter-campaign-link:hover {
+  background: #285966;
+  border-color: #285966;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(57, 127, 145, 0.2);
+}
+
+.winter-campaign-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   WINTER — MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .winter-campaign-content {
+    width: 92%;
+    min-height: auto;
+    display: grid;
+
+    grid-template-columns: 39px minmax(0, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+
+    padding: 12px 0;
+  }
+
+  .winter-campaign-icon {
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+  }
+
+  .winter-campaign-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .winter-campaign-eyebrow {
+    font-size: 0.58rem;
+  }
+
+  .winter-campaign-title {
+    font-size: 0.83rem;
+  }
+
+  .winter-campaign-description {
+    font-size: 0.7rem;
+  }
+
+  .winter-campaign-link {
+    grid-column: 2;
+    justify-self: start;
+
+    min-height: 34px;
+    padding: 0 12px;
+
+    font-size: 0.7rem;
+  }
+
+  .winter-campaign::before {
+    right: -5px;
+    font-size: 60px;
+  }
+
+  .winter-campaign::after {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .winter-campaign-content {
+    width: 93%;
+    column-gap: 8px;
+  }
+
+  .winter-campaign-title {
+    font-size: 0.77rem;
+  }
+
+  .winter-campaign-description {
+    font-size: 0.66rem;
+  }
+}

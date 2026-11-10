@@ -1,41 +1,71 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const CartContext = createContext(null);
 
 const CART_STORAGE_KEY = "teachershine_cart";
+
+const normalizeCart = (items) => {
+  if (!Array.isArray(items)) return [];
+
+  return items.filter(
+    (item) =>
+      item &&
+      item.id !== undefined &&
+      item.id !== null &&
+      Number(item.quantity) > 0
+  );
+};
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(() => {
     try {
       const savedCart = localStorage.getItem(CART_STORAGE_KEY);
 
-      return savedCart ? JSON.parse(savedCart) : [];
+      return savedCart
+        ? normalizeCart(JSON.parse(savedCart))
+        : [];
     } catch (error) {
+      console.error("Erreur de lecture du panier :", error);
       return [];
     }
   });
 
-  // Sauvegarde automatique du panier
+  // Sauvegarde automatique
   useEffect(() => {
-    localStorage.setItem(
-      CART_STORAGE_KEY,
-      JSON.stringify(cartItems)
-    );
+    try {
+      localStorage.setItem(
+        CART_STORAGE_KEY,
+        JSON.stringify(cartItems)
+      );
+    } catch (error) {
+      console.error("Erreur de sauvegarde du panier :", error);
+    }
   }, [cartItems]);
 
-  // Ajouter un produit
+  // Ajouter un produit classique
   const addToCart = (product, quantity = 1) => {
+    const safeQuantity = Math.max(1, Number(quantity) || 1);
+
     setCartItems((currentItems) => {
       const existingItem = currentItems.find(
-        (item) => item.id === product.id
+        (item) =>
+          String(item.id) === String(product.id) &&
+          item.type !== "pack"
       );
 
       if (existingItem) {
         return currentItems.map((item) =>
-          item.id === product.id
+          item === existingItem
             ? {
                 ...item,
-                quantity: item.quantity + quantity,
+                quantity: Number(item.quantity) + safeQuantity,
               }
             : item
         );
@@ -45,65 +75,132 @@ export function CartProvider({ children }) {
         ...currentItems,
         {
           ...product,
-          quantity,
+          type: "product",
+          quantity: safeQuantity,
         },
       ];
     });
   };
 
-  // Supprimer un produit
+  // Ajouter un pack promotionnel
+  const addPackToCart = (pack, quantity = 1) => {
+    if (!pack || !pack.id || !Array.isArray(pack.items)) {
+      console.error("Pack invalide :", pack);
+      return;
+    }
+
+    const safeQuantity = Math.max(1, Number(quantity) || 1);
+
+    const packCartItem = {
+      id: pack.id,
+      type: "pack",
+      name: pack.name,
+      category: "Collection promotionnelle",
+      description: pack.description || "",
+      image: pack.image,
+      price: Number(pack.price),
+      originalPrice: Number(pack.originalPrice || pack.price),
+      badge: pack.badge || "OFFRE SPÉCIALE",
+      items: pack.items.map((item) => ({
+        product: {
+          id: item.product.id,
+          name: item.product.name,
+          image: item.product.image,
+          price: Number(item.product.price),
+        },
+        quantity: Number(item.quantity) || 1,
+        isGift: Boolean(item.isGift),
+      })),
+      quantity: safeQuantity,
+    };
+
+    setCartItems((currentItems) => {
+      const existingItem = currentItems.find(
+        (item) =>
+          item.type === "pack" &&
+          String(item.id) === String(pack.id)
+      );
+
+      if (existingItem) {
+        return currentItems.map((item) =>
+          item === existingItem
+            ? {
+                ...item,
+                quantity: Number(item.quantity) + safeQuantity,
+              }
+            : item
+        );
+      }
+
+      return [...currentItems, packCartItem];
+    });
+  };
+
+  // Supprimer un article ou un pack
   const removeFromCart = (productId) => {
     setCartItems((currentItems) =>
-      currentItems.filter((item) => item.id !== productId)
+      currentItems.filter(
+        (item) => String(item.id) !== String(productId)
+      )
     );
   };
 
-  // Modifier quantité
+  // Modifier la quantité
   const updateQuantity = (productId, quantity) => {
-    if (quantity <= 0) {
+    const safeQuantity = Number(quantity);
+
+    if (!Number.isFinite(safeQuantity) || safeQuantity <= 0) {
       removeFromCart(productId);
       return;
     }
 
     setCartItems((currentItems) =>
       currentItems.map((item) =>
-        item.id === productId
+        String(item.id) === String(productId)
           ? {
               ...item,
-              quantity,
+              quantity: safeQuantity,
             }
           : item
       )
     );
   };
 
-  // Vider panier
+  // Vider le panier
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // Nombre total d'articles
-  const totalItems = useMemo(() => {
-    return cartItems.reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-  }, [cartItems]);
+  // Nombre total de lignes / unités commandées
+  // Un pack compte comme un seul article, quelle que soit sa composition.
+  const totalItems = useMemo(
+    () =>
+      cartItems.reduce(
+        (total, item) => total + Number(item.quantity || 0),
+        0
+      ),
+    [cartItems]
+  );
 
-  // Sous-total
-  const subtotal = useMemo(() => {
-    return cartItems.reduce(
-      (total, item) =>
-        total + Number(item.price) * item.quantity,
-      0
-    );
-  }, [cartItems]);
+  // Sous-total : prix du pack, et non somme de ses composants.
+  const subtotal = useMemo(
+    () =>
+      cartItems.reduce(
+        (total, item) =>
+          total +
+          Number(item.price || 0) *
+            Number(item.quantity || 0),
+        0
+      ),
+    [cartItems]
+  );
 
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
+        addPackToCart,
         removeFromCart,
         updateQuantity,
         clearCart,

@@ -9,6 +9,8 @@ import About from "../pages/About/About";
 import Commander from "../pages/Commander/Commander";
 import NotFound from "../pages/NotFound/NotFound";
 import Contact from "../pages/Contact/Contact";
+import Collection from "../pages/Collection/Collection";
+
 import ScrollToTop from "../components/common/ScrollToTop";
 
 function AppRoutes() {
@@ -31,6 +33,8 @@ function AppRoutes() {
           <Route path="/about" element={<About />} />
 
           <Route path="/commander" element={<Commander />} />
+
+          <Route path="/collection" element={<Collection />} />
 
           <Route path="/contact" element={<Contact />} />
 

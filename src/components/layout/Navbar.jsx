@@ -6,8 +6,8 @@ import {
   FiShoppingBag,
   FiMenu,
   FiX,
-  FiInfo,
   FiArrowRight,
+  FiGift,
 } from "react-icons/fi";
 
 import { useCart } from "../../context/CartContext";
@@ -21,10 +21,27 @@ const NAVIGATION_LINKS = [
   { label: "Commander", path: "/commander" },
   { label: "Contact", path: "/contact" },
 ];
+const isWinterCampaignActive = () => {
+  const now = new Date();
+  const month = now.getMonth();
+  const day = now.getDate();
+
+  const isSeason =
+    (month === 10 && day >= 10) ||
+    month === 11 ||
+    (month === 0 && day <= 10);
+
+  const isPreview =
+    new URLSearchParams(window.location.search)
+      .get("winterPreview") === "1";
+
+  return isSeason || isPreview;
+};
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { totalItems } = useCart();
+  const isWinterCampaign = isWinterCampaignActive();
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -173,33 +190,47 @@ function Navbar() {
       </div>
 
       {/* Bandeau d'information */}
-      <div className="navbar-order-notice">
-        <div className="navbar-order-notice-content">
-          <span className="navbar-order-notice-icon-wrap">
-            <FiInfo
-              className="navbar-order-notice-icon"
-              aria-hidden="true"
-            />
-          </span>
-
-          <p className="navbar-order-notice-text">
-            <strong>Un petit panier ?</strong>
-            <span>
-              Pour une commande de moins de 20 DT, contactez-nous
-              directement pour la finaliser.
-            </span>
-          </p>
-
-          <Link
-            to="/contact"
-            className="navbar-order-notice-link"
-            onClick={closeMenu}
-          >
-            <span>Nous contacter</span>
-            <FiArrowRight aria-hidden="true" />
-          </Link>
-        </div>
+      
+{/* Bandeau saisonnier et information */}
+<div
+  className={`navbar-order-notice ${
+    isWinterCampaign ? "winter-campaign" : ""
+  }`}
+>
+  {isWinterCampaign && (
+    <div className="winter-campaign-content">
+      <div className="winter-campaign-icon">
+        <FiGift aria-hidden="true" />
       </div>
+
+      <div className="winter-campaign-copy">
+        <span className="winter-campaign-eyebrow">
+          WINTER COLLECTION
+        </span>
+
+        <p className="winter-campaign-title">
+          L'hiver arrive chez Teacher Shine !
+        </p>
+
+        <p className="winter-campaign-description">
+          Découvrez notre sélection pour rendre votre
+          quotidien en classe encore plus spécial.
+        </p>
+      </div>
+
+      <Link
+        to="/collection"
+        className="winter-campaign-link"
+        onClick={closeMenu}
+      >
+        Découvrir la collection
+        <FiArrowRight aria-hidden="true" />
+      </Link>
+    </div>
+  )}
+
+  
+  </div>
 
       {/* Fond sombre du menu mobile */}
       <button

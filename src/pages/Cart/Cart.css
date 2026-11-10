@@ -538,3 +538,215 @@
     margin-top: -5px;
   }
 }
+
+
+/* =========================================================
+   TEACHER SHINE — PACK CART ADDITIONS
+========================================================= */
+
+.cart-item--pack {
+  border-color: rgba(47, 143, 131, 0.2);
+  background: linear-gradient(135deg, #fff, #F8FCFA);
+}
+
+.cart-item-image {
+  position: relative;
+}
+
+.cart-pack-image-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 5px 8px;
+  color: #fff;
+  background: #2F8F83;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.cart-pack-description {
+  margin: 7px 0 12px;
+  color: #788984;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cart-pack-content {
+  display: grid;
+  gap: 8px;
+  max-width: 450px;
+  margin: 12px 0;
+  padding: 12px;
+  background: #F5FAF8;
+  border: 1px solid #E4EFEB;
+  border-radius: 10px;
+}
+
+.cart-pack-content-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+  color: #24736A;
+  font-size: 11px;
+}
+
+.cart-pack-product {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.cart-pack-product img {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 7px;
+}
+
+.cart-pack-product-info {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 3px;
+}
+
+.cart-pack-product-info strong {
+  color: #334B45;
+  font-size: 11px;
+}
+
+.cart-pack-product-info span {
+  color: #8B9995;
+  font-size: 10px;
+}
+
+.cart-gift-badge,
+.cart-included-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 6px 8px;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.cart-gift-badge {
+  color: #fff;
+  background: #2E9B70;
+}
+
+.cart-included-badge {
+  color: #24736A;
+  background: #DDF2EF;
+}
+
+.cart-item-pricing {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.cart-item-original-price {
+  color: #A0AAA7;
+  font-size: 11px;
+  text-decoration: line-through;
+}
+
+.cart-summary-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 23px;
+}
+
+.cart-summary-heading > div > span {
+  color: #2F8F83;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.cart-summary-heading h2 {
+  margin: 5px 0 0;
+}
+
+.cart-summary-heading > svg {
+  color: #2F8F83;
+  font-size: 22px;
+}
+
+.summary-line > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.checkout-security > span {
+  display: grid;
+  place-items: center;
+}
+
+.cart-summary-collection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 15px;
+  color: #24736A;
+  border-top: 1px solid #EAF0ED;
+  font-size: 11px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.cart-empty-icon svg {
+  font-size: 35px;
+}
+
+.cart-empty-eyebrow {
+  display: block;
+  margin: 12px 0;
+  color: #2F8F83;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+}
+
+.cart-empty-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+}
+
+.cart-empty-collection {
+  color: #24736A;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+@media (max-width: 650px) {
+  .cart-item--pack {
+    align-items: flex-start;
+  }
+
+  .cart-pack-content {
+    padding: 9px;
+  }
+
+  .cart-item-total {
+    font-size: 12px;
+  }
+}
