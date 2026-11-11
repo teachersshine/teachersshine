@@ -1,71 +1,37 @@
+
 /* ==========================================
-
-   TEACHER SHINE - AUTOMATIC WINTER SNOWFALL
-
-   ========================================== */
-
- 
+   TEACHER SHINE - OPTIMIZED WINTER SNOW
+========================================== */
 
 .winter-background-snow {
-
     position: fixed;
+    inset: 0;
 
-    top: 0;
-
-    left: 0;
-
- 
-
-    width: 100vw;
-
-    height: 100vh;
-
- 
+    width: 100%;
+    height: 100%;
 
     display: block;
-
- 
-
     pointer-events: none !important;
-
- 
 
     z-index: 40;
 
- 
-
     background: transparent;
 
- 
-
-    overflow: hidden;
-
+    /* Limite les interactions de composition */
+    contain: strict;
 }
 
- 
-
-/* Le canvas ne bloque jamais les interactions */
-
-.winter-background-snow,
-
-.winter-background-snow * {
-
-    pointer-events: none !important;
-
+/* Mobile : priorité à la fluidité du scroll */
+@media (max-width: 768px) {
+    .winter-background-snow {
+        z-index: 40;
+        contain: strict;
+    }
 }
-
- 
 
 /* Accessibilité */
-
 @media (prefers-reduced-motion: reduce) {
-
     .winter-background-snow {
-
         display: none !important;
-
     }
-
 }
-
- 
