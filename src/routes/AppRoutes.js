@@ -12,6 +12,7 @@ import Contact from "../pages/Contact/Contact";
 import Collection from "../pages/Collection/Collection";
 
 import ScrollToTop from "../components/common/ScrollToTop";
+import Episodes from "../pages/Episodes/Episodes";
 
 function AppRoutes() {
   const location = useLocation();
@@ -25,6 +26,8 @@ function AppRoutes() {
           <Route path="/" element={<Home />} />
 
           <Route path="/shop" element={<Shop />} />
+
+           <Route path="/episodes" element={<Episodes />} />
 
           <Route path="/product/:id" element={<ProductDetails />} />
 

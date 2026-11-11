@@ -17,10 +17,12 @@ import "./Navbar.css";
 const NAVIGATION_LINKS = [
   { label: "Accueil", path: "/" },
   { label: "Boutique", path: "/shop" },
+  { label: "Espace pédagogique", path: "/episodes" },
   { label: "À propos", path: "/about" },
   { label: "Commander", path: "/commander" },
   { label: "Contact", path: "/contact" },
 ];
+
 const isWinterCampaignActive = () => {
   const now = new Date();
   const month = now.getMonth();
@@ -111,6 +113,7 @@ function Navbar() {
               <span className="navbar-brand-name">
                 Teacher Shine
               </span>
+
               <span className="navbar-brand-tagline">
                 Outils pour enseignants
               </span>
@@ -189,48 +192,44 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Bandeau d'information */}
-      
-{/* Bandeau saisonnier et information */}
-<div
-  className={`navbar-order-notice ${
-    isWinterCampaign ? "winter-campaign" : ""
-  }`}
->
-  {isWinterCampaign && (
-    <div className="winter-campaign-content">
-      <div className="winter-campaign-icon">
-        <FiGift aria-hidden="true" />
-      </div>
-
-      <div className="winter-campaign-copy">
-        <span className="winter-campaign-eyebrow">
-          WINTER COLLECTION
-        </span>
-
-        <p className="winter-campaign-title">
-          L'hiver arrive chez Teacher Shine !
-        </p>
-
-        <p className="winter-campaign-description">
-          Découvrez notre sélection pour rendre votre
-          quotidien en classe encore plus spécial.
-        </p>
-      </div>
-
-      <Link
-        to="/collection"
-        className="winter-campaign-link"
-        onClick={closeMenu}
+      {/* Bandeau saisonnier */}
+      <div
+        className={`navbar-order-notice ${
+          isWinterCampaign ? "winter-campaign" : ""
+        }`}
       >
-        Découvrir la collection
-        <FiArrowRight aria-hidden="true" />
-      </Link>
-    </div>
-  )}
+        {isWinterCampaign && (
+          <div className="winter-campaign-content">
+            <div className="winter-campaign-icon">
+              <FiGift aria-hidden="true" />
+            </div>
 
-  
-  </div>
+            <div className="winter-campaign-copy">
+              <span className="winter-campaign-eyebrow">
+                WINTER COLLECTION
+              </span>
+
+              <p className="winter-campaign-title">
+                L'hiver arrive chez Teacher Shine !
+              </p>
+
+              <p className="winter-campaign-description">
+                Découvrez notre sélection pour rendre votre
+                quotidien en classe encore plus spécial.
+              </p>
+            </div>
+
+            <Link
+              to="/collection"
+              className="winter-campaign-link"
+              onClick={closeMenu}
+            >
+              Découvrir la collection
+              <FiArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        )}
+      </div>
 
       {/* Fond sombre du menu mobile */}
       <button
@@ -280,6 +279,7 @@ function Navbar() {
           <span className="mobile-menu-eyebrow">
             BIENVENUE CHEZ TEACHER SHINE
           </span>
+
           <p>
             Tout pour rendre votre quotidien d'enseignant plus
             simple et plus créatif.
