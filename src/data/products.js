@@ -1,7 +1,7 @@
 const images = require.context(
   "../assets/Products",
   true,
-  /\.(png|jpe?g|webp|gif)$/i
+  /\.webp$/i
 );
 
 const imagePath = (filename) => images(`./${filename}`);
@@ -18,10 +18,10 @@ const products = [
     price: 10.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
-    image: imagePath("Pointeur.png"),
+    image: imagePath("Pointeur.webp"),
     images: [
-      imagePath("Pointeur.png"),
-      imagePath("Pointeur2.png"),
+      imagePath("Pointeur.webp"),
+      imagePath("Pointeur2.webp"),
     ],
     badge: "Populaire",
     description:
@@ -36,7 +36,7 @@ const products = [
     price: 13.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
-    image: imagePath("Sonnette.png"),
+    image: imagePath("Sonnette.webp"),
     badge: "Nouveau",
     description:
       "Une sonnette pratique pour attirer facilement l'attention des élèves.",
@@ -50,7 +50,7 @@ const products = [
     price: 38.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("fishing game.png"),
+    image: imagePath("fishing game.webp"),
     badge: "Top vente",
     description:
       "Un jeu amusant pour développer différentes compétences tout en jouant.",
@@ -64,7 +64,7 @@ const products = [
     price: 35.0,
     category: "Accessoires magnétiques",
     categorySlug: "accessoires-magnetiques",
-    image: imagePath("PorteAStyloMag.png"),
+    image: imagePath("PorteAStyloMag.webp"),
     badge: "Nouveau",
     description:
       "Un porte-stylo magnétique pratique pour garder vos stylos à portée de main.",
@@ -78,7 +78,7 @@ const products = [
     price: 55.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("SpinSpeakGame.png"),
+    image: imagePath("SpinSpeakGame.webp"),
     badge: "",
     description:
       "Faites tourner la roue des prix pour désigner un gagnant chanceux et rendez l'événement encore plus spécial et mémorable.",
@@ -96,7 +96,7 @@ const products = [
     price: 38.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("WordGame.jpeg"),
+    image: imagePath("WordGame.webp"),
     badge: "",
     description:
       "Un jeu autour des mots pour rendre les activités plus interactives.",
@@ -110,7 +110,7 @@ const products = [
     price: 40.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("SoundGame.jpeg"),
+    image: imagePath("SoundGame.webp"),
     badge: "",
     description:
       "Une activité ludique basée sur les sons.",
@@ -124,7 +124,7 @@ const products = [
     price: 20.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("LikeDislikeGame.png"),
+    image: imagePath("LikeDislikeGame.webp"),
     badge: "",
     description:
       "Une activité interactive pour faire participer les élèves.",
@@ -138,7 +138,7 @@ const products = [
     price: 40.0,
     category: "Jeux éducatifs",
     categorySlug: "jeux-educatifs",
-    image: imagePath("math game.png"),
+    image: imagePath("math game.webp"),
     badge: "",
     description:
       "Un jeu éducatif pour rendre les activités mathématiques plus amusantes.",
@@ -156,10 +156,10 @@ const products = [
     price: 35.0,
     category: "Journal & Cahier",
     categorySlug: "journal-cahier",
-    image: imagePath("J1.png"),
+    image: imagePath("J1.webp"),
     images: [
-      imagePath("J1.png"),
-      imagePath("J2.png"),
+      imagePath("J1.webp"),
+      imagePath("J2.webp"),
     ],
     badge: "",
     description:
@@ -200,10 +200,10 @@ const products = [
     price: 35.0,
     category: "Journal & Cahier",
     categorySlug: "journal-cahier",
-    image: imagePath("J3.png"),
+    image: imagePath("J3.webp"),
     images: [
-      imagePath("J3.png"),
-      imagePath("J4.png"),
+      imagePath("J3.webp"),
+      imagePath("J4.webp"),
     ],
     badge: "",
     description:
@@ -244,10 +244,10 @@ const products = [
     price: 35.0,
     category: "Journal & Cahier",
     categorySlug: "journal-cahier",
-    image: imagePath("J6.png"),
+    image: imagePath("J6.webp"),
     images: [
-      imagePath("J6.png"),
-      imagePath("J5.png"),
+      imagePath("J6.webp"),
+      imagePath("J5.webp"),
     ],
     badge: "",
     description:
@@ -288,10 +288,10 @@ const products = [
     price: 35.0,
     category: "Journal & Cahier",
     categorySlug: "journal-cahier",
-    image: imagePath("J7.png"),
+    image: imagePath("J7.webp"),
     images: [
-      imagePath("J7.png"),
-      imagePath("J8.png"),
+      imagePath("J7.webp"),
+      imagePath("J8.webp"),
     ],
     badge: "",
     description:
@@ -324,8 +324,7 @@ const products = [
       },
     ],
   },
-
-  // =========================================================
+    // =========================================================
   // 🎯 STRATÉGIES PÉDAGOGIQUES
   // =========================================================
 
@@ -336,7 +335,7 @@ const products = [
     price: 15.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("popcorn.png"),
+    image: imagePath("popcorn.webp"),
     badge: "",
     description:
       "1 boîte + 6P Popcorn ludique et coloré, idéal pour l'organisation de la classe (Plastifée)",
@@ -350,7 +349,7 @@ const products = [
     price: 20.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("strategie football.png"),
+    image: imagePath("strategie football.webp"),
     badge: "",
     description:
       "4 Ballons & 2 Goals : une stratégie ludique qui transforme les objectifs d’apprentissage en un véritable défi à relever (Plastifée)",
@@ -364,7 +363,7 @@ const products = [
     price: 15.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("jerry strategy.png"),
+    image: imagePath("jerry strategy.webp"),
     badge: "",
     description:
       "1 Jerry + 6P Fromage idéal pour l'organisation de la classe (Plastifée)",
@@ -378,7 +377,7 @@ const products = [
     price: 15.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("lampe.png"),
+    image: imagePath("lampe.webp"),
     badge: "",
     description:
       "6 lampes pédagogiques : un support ludique pour mettre en lumière les informations pertinentes, enrichir la production écrite et rappeler les notions essentielles de façon simple et visuelle (Plastifée)",
@@ -392,7 +391,7 @@ const products = [
     price: 8.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("posteman.png"),
+    image: imagePath("posteman.webp"),
     badge: "",
     description:
       "Stratégie « Le facteur » : une activité ludique basée sur des messages ou des cartes distribués par un élève désigné comme facteur par l’enseignant. Elle favorise la participation, les échanges et la communication entre les élèves (Plastifée)",
@@ -406,7 +405,7 @@ const products = [
     price: 15.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("key.png"),
+    image: imagePath("key.webp"),
     badge: "",
     description:
       "3 serrures + clés : un support ludique pour travailler les synonymes et les antonymes en associant chaque mot à la clé correspondante, tout en rendant l’apprentissage du vocabulaire interactif et amusant (Plastifée)",
@@ -420,7 +419,7 @@ const products = [
     price: 35.0,
     category: "Activités",
     categorySlug: "activités",
-    image: imagePath("Cube Inserable.png"),
+    image: imagePath("Cube Inserable.webp"),
     badge: "",
     description:
       "Cube insérable à 6 faces : un outil pédagogique modulable avec 6 pochettes transparentes permettant d’insérer des cartes personnalisables selon le contenu de chaque leçon, pour varier les activités et rendre l’apprentissage plus interactif.",
@@ -434,7 +433,7 @@ const products = [
     price: 35.0,
     category: "Activités",
     categorySlug: "activités",
-    image: imagePath("Cube Effaçable.png"),
+    image: imagePath("Cube Effaçable.webp"),
     badge: "",
     description:
       "Cube effaçable – 1 pièce + stylo spécial + effaceur : un outil pratique et réutilisable pour proposer des activités variées, écrire directement sur le cube, effacer et recommencer à volonté.",
@@ -448,7 +447,7 @@ const products = [
     price: 35.0,
     category: "Stratégie",
     categorySlug: "stratégie",
-    image: imagePath("Tableau de Résponsabilité.png"),
+    image: imagePath("Tableau de Résponsabilité.webp"),
     badge: "",
     description:
       "Un support pratique et réutilisable pour organiser les responsabilités de la classe, responsabiliser les élèves et favoriser une gestion de classe efficace.",
@@ -466,7 +465,7 @@ const products = [
     price: 10.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
-    image: imagePath("fleche.png"),
+    image: imagePath("fleche.webp"),
     badge: "",
     description:
       "Une flèche pratique pour vos activités et présentations.",
@@ -480,7 +479,7 @@ const products = [
     price: 25.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
-    image: imagePath("TimerStand1.png"),
+    image: imagePath("TimerStand1.webp"),
     badge: "",
     description:
       "Un support pratique pour gérer le temps pendant vos activités.",
@@ -494,7 +493,7 @@ const products = [
     price: 40.0,
     category: "Outils enseignants",
     categorySlug: "outils-enseignants",
-    image: imagePath("TimerStand2.png"),
+    image: imagePath("TimerStand2.webp"),
     badge: "",
     description:
       "Un support timer pratique pour organiser vos activités.",
@@ -512,7 +511,7 @@ const products = [
     price: 40.0,
     category: "Stickers & tampons",
     categorySlug: "stickers-tampons",
-    image: imagePath("RubanStickers.png"),
+    image: imagePath("RubanStickers.webp"),
     badge: "",
     description:
       "Des stickers pratiques pour décorer, organiser et encourager.",
@@ -526,7 +525,7 @@ const products = [
     price: 10.0,
     category: "Accessoires magnétiques",
     categorySlug: "accessoires-magnetiques",
-    image: imagePath("BtnMang.png"),
+    image: imagePath("BtnMang.webp"),
     badge: "",
     description:
       "Un accessoire magnétique pratique pour votre organisation.",
@@ -546,8 +545,7 @@ const products = [
       },
     ],
   },
-
-  // =========================================================
+    // =========================================================
   // 🎒 SACS & TROUSSES
   // =========================================================
 
@@ -558,7 +556,7 @@ const products = [
     price: 22.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("TrousseNoir.png"),
+    image: imagePath("TrousseNoir.webp"),
     badge: "",
     description:
       "Une trousse pratique pour organiser vos accessoires du quotidien.",
@@ -572,7 +570,7 @@ const products = [
     price: 25.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("TrousseRose.png"),
+    image: imagePath("TrousseRose.webp"),
     badge: "",
     description:
       "Une trousse élégante et pratique pour vos accessoires.",
@@ -586,7 +584,7 @@ const products = [
     price: 89.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Cartable.png"),
+    image: imagePath("Cartable.webp"),
     badge: "",
     description:
       "Un cartable pratique pour transporter facilement vos affaires.",
@@ -600,7 +598,7 @@ const products = [
     price: 58.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Sac1.png"),
+    image: imagePath("Sac1.webp"),
     badge: "",
     description:
       "Un sac pratique adapté au quotidien des enseignants.",
@@ -614,7 +612,7 @@ const products = [
     price: 58.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Sac2.png"),
+    image: imagePath("Sac2.webp"),
     badge: "",
     description:
       "Un sac pratique avec un design adapté au quotidien.",
@@ -628,7 +626,7 @@ const products = [
     price: 58.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Sac3.jpeg"),
+    image: imagePath("Sac3.webp"),
     badge: "",
     description:
       "Un sac pratique et adapté aux besoins des enseignants.",
@@ -642,7 +640,7 @@ const products = [
     price: 69.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Sac4.png"),
+    image: imagePath("Sac4.webp"),
     badge: "",
     description:
       "Un sac pratique pour transporter vos accessoires.",
@@ -656,7 +654,7 @@ const products = [
     price: 20.0,
     category: "Sacs & trousses",
     categorySlug: "sacs-trousses",
-    image: imagePath("Trousse Kaki.png"),
+    image: imagePath("Trousse Kaki.webp"),
     badge: "",
     description:
       "Une trousse pratique avec un style kaki.",
@@ -674,7 +672,7 @@ const products = [
     price: 5.0,
     category: "Récompenses",
     categorySlug: "recompenses",
-    image: imagePath("Couronne.png"),
+    image: imagePath("Couronne.webp"),
     badge: "",
     description:
       "Une petite récompense pour valoriser les efforts des élèves.",
@@ -688,7 +686,7 @@ const products = [
     price: 2.5,
     category: "Récompenses",
     categorySlug: "recompenses",
-    image: imagePath("Medaille.png"),
+    image: imagePath("Medaille.webp"),
     badge: "",
     description:
       "Des médailles pour féliciter et encourager les élèves.",
@@ -702,7 +700,7 @@ const products = [
     price: 7.5,
     category: "Récompenses",
     categorySlug: "recompenses",
-    image: imagePath("Trophés.png"),
+    image: imagePath("Trophés.webp"),
     badge: "",
     description:
       "Des trophées pour célébrer les réussites.",
@@ -716,7 +714,7 @@ const products = [
     price: 45.0,
     category: "Récompenses",
     categorySlug: "recompenses",
-    image: imagePath("star_box.png"),
+    image: imagePath("star_box.webp"),
     badge: "",
     description:
       "Une boîte de récompenses pour motiver les élèves.",
@@ -730,7 +728,7 @@ const products = [
     price: 35.0,
     category: "Récompenses",
     categorySlug: "recompenses",
-    image: imagePath("Serre tete.png"),
+    image: imagePath("Serre tete.webp"),
     badge: "",
     description:
       "5P Serre-têtes à étiquettes : un support ludique permettant d’insérer des étiquettes sur la tête des élèves pour organiser des devinettes et des jeux de vocabulaire, tout en facilitant la communication et les interactions en classe.",
@@ -748,7 +746,7 @@ const products = [
     price: 38.0,
     category: "Stickers & tampons",
     categorySlug: "stickers-tampons",
-    image: imagePath("stamps arb 5p.png"),
+    image: imagePath("stamps arb 5p.webp"),
     badge: "",
     description:
       "Des tampons en arabe pour accompagner vos corrections.",
@@ -762,7 +760,7 @@ const products = [
     price: 38.0,
     category: "Stickers & tampons",
     categorySlug: "stickers-tampons",
-    image: imagePath("Stamps FR.png"),
+    image: imagePath("Stamps FR.webp"),
     badge: "",
     description:
       "Des tampons en français pour vos corrections.",
@@ -776,7 +774,7 @@ const products = [
     price: 45.0,
     category: "Stickers & tampons",
     categorySlug: "stickers-tampons",
-    image: imagePath("Stamps Eng.png"),
+    image: imagePath("Stamps Eng.webp"),
     badge: "",
     description:
       "Des tampons en anglais pour vos corrections.",
@@ -794,7 +792,7 @@ const products = [
     price: 27.0,
     category: "Accessoires",
     categorySlug: "accessoires",
-    image: imagePath("Portfeuille.png"),
+    image: imagePath("Portfeuille.webp"),
     badge: "",
     description:
       "Un portefeuille compact et pratique.",
@@ -808,7 +806,7 @@ const products = [
     price: 36.0,
     category: "Activités",
     categorySlug: "activites",
-    image: imagePath("Balle.png"),
+    image: imagePath("Balle.webp"),
     badge: "",
     description:
       "Des accessoires amusants pour vos activités en classe.",
